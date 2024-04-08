@@ -37,6 +37,7 @@ public class ProductImageService : IProductImageService
     {
         var productImage = await _repository.GetByIdAsync(pi => pi.ProductImageId == id);
         return _mapper.Map<GetByIdProductImageDto>(productImage);
+        //return _mapper.Map<GetByIdProductImageDto>(productImage);
     }
 
     public async Task UpdateProductImageAsync(UpdateProductImageDto updateProductImageDto)
