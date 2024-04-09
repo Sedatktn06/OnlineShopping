@@ -1,6 +1,10 @@
 using Microsoft.Extensions.Options;
 using OnlineShopping.Catalog.DbSettings;
 using OnlineShopping.Catalog.Repository;
+using OnlineShopping.Catalog.Repository.MongoDb.Categories;
+using OnlineShopping.Catalog.Repository.MongoDb.ProductDetails;
+using OnlineShopping.Catalog.Repository.MongoDb.ProductImages;
+using OnlineShopping.Catalog.Repository.MongoDb.Products;
 using OnlineShopping.Catalog.Services.CategoryServices;
 using OnlineShopping.Catalog.Services.ProductDetailServices;
 using OnlineShopping.Catalog.Services.ProductImageServices;
@@ -9,11 +13,15 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped(typeof(IRepository<>), typeof(MongoRepository<>));
+builder.Services.AddSingleton(typeof(IRepository<>), typeof(MongoRepository<>));
 builder.Services.AddScoped<ICategoryService,CategoryService>();
-builder.Services.AddScoped<IProductService,ProductService>();
-builder.Services.AddScoped<IProductDetailService,ProductDetailService>();
-builder.Services.AddScoped<IProductImageService,ProductImageService>();
+builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
+builder.Services.AddScoped<IProductDetailRepository, ProductDetailRepository>();
+builder.Services.AddScoped<IProductImageService, ProductImageService>();
+builder.Services.AddScoped<IProductImageRepository, ProductImageRepository>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

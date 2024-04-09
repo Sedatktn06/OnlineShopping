@@ -2,15 +2,16 @@
 using OnlineShopping.Catalog.Dtos.CategoryDtos;
 using OnlineShopping.Catalog.Entities;
 using OnlineShopping.Catalog.Repository;
+using OnlineShopping.Catalog.Repository.MongoDb.Categories;
 
 namespace OnlineShopping.Catalog.Services.CategoryServices;
 
 public class CategoryService : ICategoryService
 {
     private readonly IMapper _mapper;
-    private readonly IRepository<Category> _repository;
+    private readonly ICategoryRepository _repository;
 
-    public CategoryService(IMapper mapper, IRepository<Category> repository)
+    public CategoryService(IMapper mapper, ICategoryRepository repository)
     {
         _mapper = mapper;
         _repository = repository;

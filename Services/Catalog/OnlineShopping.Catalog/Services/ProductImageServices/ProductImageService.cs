@@ -2,15 +2,16 @@
 using OnlineShopping.Catalog.Dtos.ProductImageDtos;
 using OnlineShopping.Catalog.Entities;
 using OnlineShopping.Catalog.Repository;
+using OnlineShopping.Catalog.Repository.MongoDb.ProductImages;
 
 namespace OnlineShopping.Catalog.Services.ProductImageServices;
 
 public class ProductImageService : IProductImageService
 {
     private readonly IMapper _mapper;
-    private readonly IRepository<ProductImage> _repository;
+    private readonly IProductImageRepository _repository;
 
-    public ProductImageService(IMapper mapper, IRepository<ProductImage> repository)
+    public ProductImageService(IMapper mapper, IProductImageRepository repository)
     {
         _mapper = mapper;
         _repository = repository;

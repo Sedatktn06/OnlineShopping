@@ -4,13 +4,14 @@ using OnlineShopping.Catalog.DbSettings;
 using OnlineShopping.Catalog.Dtos.ProductDtos;
 using OnlineShopping.Catalog.Entities;
 using OnlineShopping.Catalog.Repository;
+using OnlineShopping.Catalog.Repository.MongoDb.Products;
 
 namespace OnlineShopping.Catalog.Services.ProductServices;
 public class ProductService : IProductService
 {
     private readonly IMapper _mapper;
-    private readonly IRepository<Product> _repository;
-    public ProductService(IMapper mapper, IRepository<Product> repository)
+    private readonly IProductRepository _repository;
+    public ProductService(IMapper mapper, IProductRepository repository)
     {
         _mapper = mapper;
         _repository = repository;

@@ -2,15 +2,16 @@
 using OnlineShopping.Catalog.Dtos.ProductDetailDtos;
 using OnlineShopping.Catalog.Entities;
 using OnlineShopping.Catalog.Repository;
+using OnlineShopping.Catalog.Repository.MongoDb.ProductDetails;
 
 namespace OnlineShopping.Catalog.Services.ProductDetailServices;
 
 public class ProductDetailService : IProductDetailService
 {
     private readonly IMapper _mapper;
-    private readonly IRepository<ProductDetail> _repository;
+    private readonly IProductDetailRepository _repository;
 
-    public ProductDetailService(IMapper mapper, IRepository<ProductDetail> repository)
+    public ProductDetailService(IMapper mapper, IProductDetailRepository repository)
     {
         _mapper = mapper;
         _repository = repository;
