@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+namespace OnlineShopping.Discount.Dtos;
 
-namespace OnlineShopping.Discount.Entities;
-
-public class Coupon
+public class CreateCouponDto
 {
-    [Key]
-    public int CouponId { get; set; }
     public string Code { get; set; } = string.Empty;
     public int Rate { get; set; }
     public bool IsActive { get; set; }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineShopping.Discount.Context;
 
@@ -11,9 +12,10 @@ using OnlineShopping.Discount.Context;
 namespace OnlineShopping.Discount.Migrations
 {
     [DbContext(typeof(DapperContext))]
-    partial class DapperContextModelSnapshot : ModelSnapshot
+    [Migration("20240413210736_mig_1")]
+    partial class mig_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,11 +26,11 @@ namespace OnlineShopping.Discount.Migrations
 
             modelBuilder.Entity("OnlineShopping.Discount.Entities.Coupon", b =>
                 {
-                    b.Property<int>("CouponId")
+                    b.Property<int>("CounponId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CouponId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CounponId"), 1L, 1);
 
                     b.Property<string>("Code")
                         .IsRequired()
@@ -43,7 +45,7 @@ namespace OnlineShopping.Discount.Migrations
                     b.Property<DateTime>("ValidDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("CouponId");
+                    b.HasKey("CounponId");
 
                     b.ToTable("Coupons");
                 });
