@@ -5,28 +5,24 @@ using OnlineShopping.Order.Domain.Entities;
 
 namespace OnlineShopping.Order.Apllication.Features.CQRS.Queries.AddressQueries;
 
-public class GetAddressByIdQuery
+public class GetAddressesQuery
 {
-    public int Id { get; set; }
 
-    public GetAddressByIdQuery(int id)
-    {
-        Id = id;
-    }
 }
 
-public class GetAddressByIdQueryHandler
+public class GetAddressesQueryHandler
 {
     private readonly IRepository<Address> _addressRepository;
 
-    public GetAddressByIdQueryHandler(IRepository<Address> addressRepository)
+    public GetAddressesQueryHandler(IRepository<Address> addressRepository)
     {
         _addressRepository = addressRepository;
     }
 
-    public async Task<AddressModel> HandleAsync(GetAddressByIdQuery query)
+    public async Task<List<AddressModel>> HandleAsync(GetAddressesQuery query)
     {
-        var address = await _addressRepository.GetByIdAsync(query.Id);
-        return address.ToModel();
+        var addresses = await _addressRepository.GetAllAsync();
+        return addresses.ToModels().ToList();
     }
 }
+
