@@ -1,5 +1,4 @@
 ﻿using OnlineShopping.Order.Apllication.Interfaces;
-using OnlineShopping.Order.Apllication.Models.Address;
 using OnlineShopping.Order.Apllication.Models.AddressModels;
 using OnlineShopping.Order.Domain.Entities;
 

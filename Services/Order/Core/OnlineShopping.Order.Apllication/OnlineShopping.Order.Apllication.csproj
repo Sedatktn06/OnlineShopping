@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CQRS\Commands\OrderDetailCommands\" />
     <Folder Include="Features\CQRS\Commands\OrderCommands\" />
+    <Folder Include="Features\CQRS\Handlers\AddressHandlers\" />
     <Folder Include="Features\Mediator\" />
   </ItemGroup>
 
