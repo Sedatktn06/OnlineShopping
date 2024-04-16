@@ -1,16 +1,14 @@
-﻿using OnlineShopping.Order.Apllication.Features.CQRS.Results.AddressResults;
+﻿using MediatR;
 using OnlineShopping.Order.Apllication.Interfaces;
 using OnlineShopping.Order.Apllication.Models.AddressModels;
 using OnlineShopping.Order.Domain.Entities;
 
-namespace OnlineShopping.Order.Apllication.Features.CQRS.Queries.AddressQueries;
+namespace OnlineShopping.Order.Apllication.Queries.AddressQueries;
 
-public class GetAddressesQuery
+public class GetAddressesQuery:IRequest<List<AddressModel>>
 {
-
 }
-
-public class GetAddressesQueryHandler
+public class GetAddressesQueryHandler:IRequestHandler<GetAddressesQuery,List<AddressModel>>
 {
     private readonly IRepository<Address> _addressRepository;
 
@@ -19,7 +17,7 @@ public class GetAddressesQueryHandler
         _addressRepository = addressRepository;
     }
 
-    public async Task<List<AddressModel>> HandleAsync(GetAddressesQuery query)
+    public async Task<List<AddressModel>> Handle(GetAddressesQuery request, CancellationToken cancellationToken)
     {
         var addresses = await _addressRepository.GetAllAsync();
         return addresses.ToModels().ToList();

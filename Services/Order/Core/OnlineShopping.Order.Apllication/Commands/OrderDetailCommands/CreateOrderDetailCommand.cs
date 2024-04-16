@@ -1,10 +1,11 @@
-﻿using OnlineShopping.Order.Apllication.Interfaces;
+﻿using MediatR;
+using OnlineShopping.Order.Apllication.Interfaces;
 using OnlineShopping.Order.Apllication.Models.OrderDetailModels;
 using OnlineShopping.Order.Domain.Entities;
 
-namespace OnlineShopping.Order.Apllication.Features.CQRS.Commands.OrderDetailCommands;
+namespace OnlineShopping.Order.Apllication.Commands.OrderDetailCommands;
 
-public class CreateOrderDetailCommand
+public class CreateOrderDetailCommand:IRequest
 {
     public OrderDetailModel OrderDetailModel { get; set; }
 
@@ -14,7 +15,7 @@ public class CreateOrderDetailCommand
     }
 }
 
-public class CreateOrderDetailCommandHandler
+public class CreateOrderDetailCommandHandler:IRequestHandler<CreateOrderDetailCommand>
 {
     private readonly IRepository<OrderDetail> _orderDetailRepository;
 
@@ -23,8 +24,8 @@ public class CreateOrderDetailCommandHandler
         _orderDetailRepository = orderDetailRepository;
     }
 
-    public async Task HandleAsync(CreateOrderDetailCommand command)
+    public async Task Handle(CreateOrderDetailCommand request, CancellationToken cancellationToken)
     {
-        await _orderDetailRepository.CreateAsync(command.OrderDetailModel.ToEntity());
+        await _orderDetailRepository.CreateAsync(request.OrderDetailModel.ToEntity());
     }
 }

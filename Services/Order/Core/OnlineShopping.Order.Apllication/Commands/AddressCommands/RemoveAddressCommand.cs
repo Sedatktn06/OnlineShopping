@@ -1,9 +1,10 @@
-﻿using OnlineShopping.Order.Apllication.Interfaces;
+﻿using MediatR;
+using OnlineShopping.Order.Apllication.Interfaces;
 using OnlineShopping.Order.Domain.Entities;
 
-namespace OnlineShopping.Order.Apllication.Features.CQRS.Commands.AddressCommands;
+namespace OnlineShopping.Order.Apllication.Commands.AddressCommands;
 
-public class RemoveAddressCommand
+public class RemoveAddressCommand:IRequest
 {
     public int Id { get; set; }
 
@@ -13,7 +14,7 @@ public class RemoveAddressCommand
     }
 }
 
-public class RemoveAddressCommandHandler
+public class RemoveAddressCommandHandler:IRequestHandler<RemoveAddressCommand>
 {
     private readonly IRepository<Address> _addressRepository;
 
@@ -22,12 +23,13 @@ public class RemoveAddressCommandHandler
         _addressRepository = addressRepository;
     }
 
-    public async Task HandleAsync(RemoveAddressCommand command)
+    public async Task Handle(RemoveAddressCommand request, CancellationToken cancellationToken)
     {
-        var address = await _addressRepository.GetByIdAsync(command.Id);
+        var address = await _addressRepository.GetByIdAsync(request.Id);
         if (address != null)
         {
             await _addressRepository.DeleteAsync(address);
         }
     }
+
 }

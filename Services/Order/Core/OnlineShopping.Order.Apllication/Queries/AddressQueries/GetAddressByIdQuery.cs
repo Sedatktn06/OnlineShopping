@@ -1,11 +1,11 @@
-﻿using OnlineShopping.Order.Apllication.Features.CQRS.Results.AddressResults;
+﻿using MediatR;
 using OnlineShopping.Order.Apllication.Interfaces;
 using OnlineShopping.Order.Apllication.Models.AddressModels;
 using OnlineShopping.Order.Domain.Entities;
 
-namespace OnlineShopping.Order.Apllication.Features.CQRS.Queries.AddressQueries;
+namespace OnlineShopping.Order.Apllication.Queries.AddressQueries;
 
-public class GetAddressByIdQuery
+public class GetAddressByIdQuery:IRequest<AddressModel>
 {
     public int Id { get; set; }
 
@@ -15,7 +15,7 @@ public class GetAddressByIdQuery
     }
 }
 
-public class GetAddressByIdQueryHandler
+public class GetAddressByIdQueryHandler:IRequestHandler<GetAddressByIdQuery,AddressModel>
 {
     private readonly IRepository<Address> _addressRepository;
 
@@ -24,9 +24,9 @@ public class GetAddressByIdQueryHandler
         _addressRepository = addressRepository;
     }
 
-    public async Task<AddressModel> HandleAsync(GetAddressByIdQuery query)
+    public async Task<AddressModel> Handle(GetAddressByIdQuery request, CancellationToken cancellationToken)
     {
-        var address = await _addressRepository.GetByIdAsync(query.Id);
+        var address = await _addressRepository.GetByIdAsync(request.Id);
         return address.ToModel();
     }
 }

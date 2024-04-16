@@ -1,10 +1,11 @@
-﻿using OnlineShopping.Order.Apllication.Interfaces;
+﻿using MediatR;
+using OnlineShopping.Order.Apllication.Interfaces;
 using OnlineShopping.Order.Apllication.Models.AddressModels;
 using OnlineShopping.Order.Domain.Entities;
 
-namespace OnlineShopping.Order.Apllication.Features.CQRS.Commands.AddressCommands;
+namespace OnlineShopping.Order.Apllication.Commands.AddressCommands;
 
-public class CreateAddressCommand
+public class CreateAddressCommand:IRequest
 {
     public CreateAddressCommand(AddressModel addressModel)
     {
@@ -14,7 +15,7 @@ public class CreateAddressCommand
     public AddressModel AddressModel { get; set; }
 }
 
-public class CreateAddressCommandHandler
+public class CreateAddressCommandHandler:IRequestHandler<CreateAddressCommand>
 {
     private readonly IRepository<Address> _addressRepository;
 
@@ -23,8 +24,8 @@ public class CreateAddressCommandHandler
         _addressRepository = addressRepository;
     }
 
-    public async Task HandleAsync(CreateAddressCommand command)
+    public async Task Handle(CreateAddressCommand request, CancellationToken cancellationToken)
     {
-        await _addressRepository.CreateAsync(command.AddressModel.ToEntity());
+        await _addressRepository.CreateAsync(request.AddressModel.ToEntity());
     }
 }
