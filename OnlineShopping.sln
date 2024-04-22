@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Order.Persis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Order.WebApi", "Services\Order\Presentation\OnlineShopping.Order.WebApi\OnlineShopping.Order.WebApi.csproj", "{A697E0C9-4C4C-4CE4-98BE-DBD2AD85FC0B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{C68AA8C0-0039-4BB3-833B-9B71BE2E1C34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.IdentityServer", "IdentityServer\OnlineShopping.IdentityServer\OnlineShopping.IdentityServer.csproj", "{2C048207-C5CF-47AF-906B-42A87CA33E45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{A697E0C9-4C4C-4CE4-98BE-DBD2AD85FC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A697E0C9-4C4C-4CE4-98BE-DBD2AD85FC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A697E0C9-4C4C-4CE4-98BE-DBD2AD85FC0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C048207-C5CF-47AF-906B-42A87CA33E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C048207-C5CF-47AF-906B-42A87CA33E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C048207-C5CF-47AF-906B-42A87CA33E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C048207-C5CF-47AF-906B-42A87CA33E45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,7 @@ Global
 		{14E9B4E0-B627-472D-B27F-5CC678814443} = {EFE2F216-493A-42EB-BD31-8A35998C57CF}
 		{4C8D9D89-A555-4C60-A609-4FCB79220E42} = {CAE5C76F-17AC-41D1-AA0E-76F87C9BDFAC}
 		{A697E0C9-4C4C-4CE4-98BE-DBD2AD85FC0B} = {F09C2B33-3845-4ED9-8CA4-9AE27463F03E}
+		{2C048207-C5CF-47AF-906B-42A87CA33E45} = {C68AA8C0-0039-4BB3-833B-9B71BE2E1C34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFD94C80-9D02-4469-8E63-55CD22DFAFDA}

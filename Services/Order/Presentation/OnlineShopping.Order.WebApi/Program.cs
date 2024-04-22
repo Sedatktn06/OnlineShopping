@@ -1,10 +1,12 @@
 using OnlineShopping.Order.Apllication.Interfaces;
 using OnlineShopping.Order.Apllication.Services;
+using OnlineShopping.Order.Persistence.Context;
 using OnlineShopping.Order.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<OrderContext>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 builder.Services.AddApplicationService(builder.Configuration);

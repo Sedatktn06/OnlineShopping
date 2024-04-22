@@ -7,7 +7,7 @@ public class OrderContext:DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=DESKTOP-SATO7G7;initial Catalog=OnlineShoppingDiscountDb;integrated Security=true"); 
+        optionsBuilder.UseSqlServer("Server=localhost,1440;initial Catalog=OnlineShoppingOrderDb;User=sa;Password=KrossingOver159"); 
     }
     public DbSet<Address> Addresses { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
