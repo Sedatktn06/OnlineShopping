@@ -1,0 +1,2 @@
+**Identity Server tarafýnda düzenlemeler yapýlacak. Her mikroservis içindeki controller ve actionlar için yetkilendirme keyleri ve açýklamalarý eklenecek. 
+**IdentityServer içerisindeki config dosyasýnda her bir mikroservis ve yetki isimleri constant içerisine tanýmlanacak ve config içerisindeki string ifadeler kaldýrýlacak.
