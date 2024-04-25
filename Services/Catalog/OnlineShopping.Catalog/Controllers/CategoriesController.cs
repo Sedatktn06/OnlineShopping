@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OnlineShopping.Catalog.Dtos.CategoryDtos;
 using OnlineShopping.Catalog.Services.CategoryServices;
 
 namespace OnlineShopping.Catalog.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class CategoriesController : ControllerBase

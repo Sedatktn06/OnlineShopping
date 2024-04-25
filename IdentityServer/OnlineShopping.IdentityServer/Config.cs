@@ -45,7 +45,7 @@ namespace OnlineShopping.IdentityServer
                 ClientName = "Online Shopping Visitor User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = {new Secret("OnlineShoppingSecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission" }
+                AllowedScopes = { "DiscountFullPermission" }
             },
             //Manager
             new Client

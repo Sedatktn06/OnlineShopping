@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShopping.Order.Apllication.Commands.AddressCommands;
 using OnlineShopping.Order.Apllication.Commands.OrderCommands;
@@ -9,6 +10,7 @@ using OnlineShopping.Order.Apllication.Queries.OrderQueries;
 
 namespace OnlineShopping.Order.WebApi.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class AddressesController : ControllerBase

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShopping.Discount.Dtos;
 using OnlineShopping.Discount.Services;
 
 namespace OnlineShopping.Discount.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class DiscountsController : ControllerBase
