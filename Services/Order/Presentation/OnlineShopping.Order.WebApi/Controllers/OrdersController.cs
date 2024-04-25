@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShopping.Order.Apllication.Commands.OrderCommands;
 using OnlineShopping.Order.Apllication.Models.OrderModels;
