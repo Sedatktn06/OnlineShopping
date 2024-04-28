@@ -366,3 +366,4 @@ FodyWeavers.xsd
 /Services/Order/Presentation/OnlineShopping.Order.WebApi/appsettings.json
 /Services/Order/Infrastructure/OnlineShopping.Order.Persistence/Context/OrderContext.cs
 /IdentityServer/OnlineShopping.IdentityServer/appsettings.json
+/Services/Cargo/OnlineShopping.Cargo.DataAccessLayer/Persistance/CargoContext.cs
