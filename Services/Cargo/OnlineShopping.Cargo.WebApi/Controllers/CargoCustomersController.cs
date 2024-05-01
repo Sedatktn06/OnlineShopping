@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShopping.Cargo.BusinessLayer.Abstract;
 using OnlineShopping.Cargo.DtoLayer.Dtos.CargoCompanyDtos;
@@ -7,6 +8,7 @@ using OnlineShopping.Cargo.EntityLayer.Concrete;
 
 namespace OnlineShopping.Cargo.WebApi.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class CargoCustomersController : ControllerBase
@@ -30,7 +32,8 @@ public class CargoCustomersController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(CreateCargoCustomerDto createCargoCustomerDto)
     {
-        await _cargoCustomerService.TInsertAsync(_mapper.Map<CargoCustomer>(createCargoCustomerDto));
+        var cargoCustomers = _mapper.Map<CargoCustomer>(createCargoCustomerDto);
+        await _cargoCustomerService.TInsertAsync(cargoCustomers);
         return Ok("Kargo müşterisi oluşturuldu.");
     }
 

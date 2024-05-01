@@ -23,13 +23,12 @@ public class GenericRepository<T> : IGenericDal<T> where T : class
 
     public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>>? predicate = null)
     {
-        var values = await _cargoContext.Set<T>().Where(predicate).ToListAsync();
-        return values;
+        return predicate != null ? await _cargoContext.Set<T>().Where(predicate).ToListAsync() : await _cargoContext.Set<T>().ToListAsync();
     }
 
-    public async Task<T> GetByIdAsync(Expression<Func<T, bool>>? predicate = null)
+    public async Task<T> GetByIdAsync(Expression<Func<T, bool>> predicate)
     {
-        var value = await _cargoContext.Set<T>().Where(predicate).FirstOrDefaultAsync();
+        var value = await _cargoContext.Set<T>().SingleOrDefaultAsync(predicate);
         return value;
     }
 
