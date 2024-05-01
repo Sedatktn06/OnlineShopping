@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShopping.Cargo.BusinessLayer.Abstract;
-using OnlineShopping.Cargo.DtoLayer.Dtos.CargoCompanyDtos;
 using OnlineShopping.Cargo.DtoLayer.Dtos.CargoOperationDtos;
 using OnlineShopping.Cargo.EntityLayer.Concrete;
 

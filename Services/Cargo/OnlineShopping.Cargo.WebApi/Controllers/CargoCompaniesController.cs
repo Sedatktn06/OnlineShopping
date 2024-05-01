@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShopping.Cargo.BusinessLayer.Abstract;
 using OnlineShopping.Cargo.DtoLayer.Dtos.CargoCompanyDtos;

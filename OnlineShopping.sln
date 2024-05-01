@@ -41,15 +41,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cargo", "Cargo", "{46BDFE8E-C25F-4622-A44C-6CD5E3FEDF03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Cargo.EntityLayer", "Services\Cargo\OnlineShopping.Cargo.EntityLayer\OnlineShopping.Cargo.EntityLayer.csproj", "{FC132190-E3EC-40D3-AB9B-589AFEB6E525}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Cargo.EntityLayer", "Services\Cargo\OnlineShopping.Cargo.EntityLayer\OnlineShopping.Cargo.EntityLayer.csproj", "{FC132190-E3EC-40D3-AB9B-589AFEB6E525}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Cargo.BusinessLayer", "Services\Cargo\OnlineShopping.Cargo.BusinessLayer\OnlineShopping.Cargo.BusinessLayer.csproj", "{BF977C11-D262-4E1F-85D1-2F4432D9C70D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Cargo.BusinessLayer", "Services\Cargo\OnlineShopping.Cargo.BusinessLayer\OnlineShopping.Cargo.BusinessLayer.csproj", "{BF977C11-D262-4E1F-85D1-2F4432D9C70D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Cargo.DataAccessLayer", "Services\Cargo\OnlineShopping.Cargo.DataAccessLayer\OnlineShopping.Cargo.DataAccessLayer.csproj", "{F5C19BC2-1B3C-4A24-80E6-2440634CE34F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Cargo.DataAccessLayer", "Services\Cargo\OnlineShopping.Cargo.DataAccessLayer\OnlineShopping.Cargo.DataAccessLayer.csproj", "{F5C19BC2-1B3C-4A24-80E6-2440634CE34F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Cargo.WebApi", "Services\Cargo\OnlineShopping.Cargo.WebApi\OnlineShopping.Cargo.WebApi.csproj", "{24FDFFA2-A791-4317-96D9-3F5440ED6BB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Cargo.WebApi", "Services\Cargo\OnlineShopping.Cargo.WebApi\OnlineShopping.Cargo.WebApi.csproj", "{24FDFFA2-A791-4317-96D9-3F5440ED6BB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Cargo.DtoLayer", "Services\Cargo\OnlineShopping.Cargo.DtoLayer\OnlineShopping.Cargo.DtoLayer.csproj", "{ACBE5E50-4290-43FB-ACB3-A86EB793AF76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Cargo.DtoLayer", "Services\Cargo\OnlineShopping.Cargo.DtoLayer\OnlineShopping.Cargo.DtoLayer.csproj", "{ACBE5E50-4290-43FB-ACB3-A86EB793AF76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{E160177B-B0A0-4A0C-9AAF-17A5D44D58C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Basket", "Services\Basket\OnlineShopping.Basket\OnlineShopping.Basket.csproj", "{50649BA8-FF8C-4F62-ACE1-B76F1D820B30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,10 @@ Global
 		{ACBE5E50-4290-43FB-ACB3-A86EB793AF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACBE5E50-4290-43FB-ACB3-A86EB793AF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACBE5E50-4290-43FB-ACB3-A86EB793AF76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50649BA8-FF8C-4F62-ACE1-B76F1D820B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50649BA8-FF8C-4F62-ACE1-B76F1D820B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50649BA8-FF8C-4F62-ACE1-B76F1D820B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50649BA8-FF8C-4F62-ACE1-B76F1D820B30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +137,8 @@ Global
 		{F5C19BC2-1B3C-4A24-80E6-2440634CE34F} = {46BDFE8E-C25F-4622-A44C-6CD5E3FEDF03}
 		{24FDFFA2-A791-4317-96D9-3F5440ED6BB1} = {46BDFE8E-C25F-4622-A44C-6CD5E3FEDF03}
 		{ACBE5E50-4290-43FB-ACB3-A86EB793AF76} = {46BDFE8E-C25F-4622-A44C-6CD5E3FEDF03}
+		{E160177B-B0A0-4A0C-9AAF-17A5D44D58C8} = {1E100962-B8C2-454C-99B5-30DCAC920E7D}
+		{50649BA8-FF8C-4F62-ACE1-B76F1D820B30} = {E160177B-B0A0-4A0C-9AAF-17A5D44D58C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFD94C80-9D02-4469-8E63-55CD22DFAFDA}

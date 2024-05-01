@@ -3,3 +3,4 @@ Catalog => 7070
 Discount => 7071
 Order => 7072
 Order => 7073
+Order => 7074
