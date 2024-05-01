@@ -21,7 +21,7 @@ public class CargoOperationManager : ICargoOperationService
 
     }
 
-    public async Task<List<CargoOperation>> TGetAllAsync(Expression<Func<CargoOperation, bool>> predicate)
+    public async Task<List<CargoOperation>> TGetAllAsync(Expression<Func<CargoOperation, bool>>? predicate = null)
     {
         var cargoDetails = await _cargoOperationDal.GetAllAsync(predicate);
         return cargoDetails;

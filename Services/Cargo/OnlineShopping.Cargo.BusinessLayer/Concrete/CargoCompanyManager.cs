@@ -20,7 +20,7 @@ public class CargoCompanyManager : ICargoCompanyService
         await _cargoCompanyDal.DeleteAsync(id);
     }
 
-    public async Task<List<CargoCompany>> TGetAllAsync(Expression<Func<CargoCompany, bool>> predicate)
+    public async Task<List<CargoCompany>> TGetAllAsync(Expression<Func<CargoCompany, bool>>? predicate = null)
     {
         var cargoDetails = await _cargoCompanyDal.GetAllAsync(predicate);
         return cargoDetails;

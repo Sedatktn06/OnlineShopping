@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\OnlineShopping.Cargo.BusinessLayer\OnlineShopping.Cargo.BusinessLayer.csproj" />
     <ProjectReference Include="..\OnlineShopping.Cargo.DataAccessLayer\OnlineShopping.Cargo.DataAccessLayer.csproj" />
     <ProjectReference Include="..\OnlineShopping.Cargo.DtoLayer\OnlineShopping.Cargo.DtoLayer.csproj" />
