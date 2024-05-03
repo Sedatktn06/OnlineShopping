@@ -49,14 +49,15 @@ namespace OnlineShopping.IdentityServer
                 ClientName = "Online Shopping Visitor User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = {new Secret("OnlineShoppingSecret".Sha256()) },
-                AllowedScopes = { "DiscountFullPermission" }
+                AllowedScopes = { "DiscountFullPermission" , IdentityServerConstants.LocalApi.ScopeName }
+
             },
             //Manager
             new Client
             {
                 ClientId = "OnlineShoppingManagerId",
                 ClientName = "Online Shopping Manager User",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = {new Secret("OnlineShoppingSecret".Sha256()) },
                 AllowedScopes = { "CatalogFullPermission" }
             },
@@ -66,7 +67,7 @@ namespace OnlineShopping.IdentityServer
             {
                 ClientId = "OnlineShoppingAdminId",
                 ClientName = "Online Shopping Admin User",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = {new Secret("OnlineShoppingSecret".Sha256()) },
                 AllowedScopes = { "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission" , "CargoFullPermission", "BasketFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
