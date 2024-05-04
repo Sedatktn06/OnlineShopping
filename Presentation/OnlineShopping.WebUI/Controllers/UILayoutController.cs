@@ -2,9 +2,9 @@
 
 namespace OnlineShopping.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class UILayoutController : Controller
     {
-        public IActionResult Index()
+        public IActionResult _UILayout()
         {
             return View();
         }
