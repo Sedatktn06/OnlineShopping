@@ -1,21 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using OnlineShopping.Core.Helpers;
 using OnlineShopping.DtoLayer.CatalogDtos.CategoryDtos;
 
 namespace OnlineShopping.WebUI.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[AllowAnonymous]
 public class CategoriesController : Controller
 {
-    private readonly IHttpClientFactory _httpClientFactory;
-
-    public CategoriesController(IHttpClientFactory httpClientFactory)
-    {
-        _httpClientFactory = httpClientFactory;
-    }
-
-    [AllowAnonymous]
     public async Task<IActionResult> Index()
     {
         #region ViewBag Variables
@@ -27,15 +21,28 @@ public class CategoriesController : Controller
 
         #endregion
 
-        var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.GetAsync("https://localhost:7070/api/Categories");
-        if (responseMessage.IsSuccessStatusCode)
-        {
-            var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var categories = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
-            return View(categories);
-        }
+        var response = await RequestHelper.GetAsync<List<ResultCategoryDto>>("https://localhost:7070/api/", "Categories");
+        return View(response);
+    }
 
+    [HttpGet]
+    public IActionResult CreateCategory()
+    {
+        ViewBag.V1 = "Ana Sayfa";
+        ViewBag.V2 = "Kategoriler";
+        ViewBag.V3 = "Kategori Ekleme Sayfası";
+        ViewBag.V0 = "Kategori İşlemleri";
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
+    {
+        var response = await RequestHelper.PostAsync<CreateCategoryDto>("https://localhost:7070/api/", "Categories", createCategoryDto);
+        if (response != null)
+        {
+            return RedirectToAction("Index", "Categories", new { area = "Admin" });
+        }
         return View();
     }
 }

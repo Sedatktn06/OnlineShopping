@@ -5,7 +5,6 @@ using OnlineShopping.Catalog.Services.CategoryServices;
 
 namespace OnlineShopping.Catalog.Controllers;
 
-[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class CategoriesController : ControllerBase

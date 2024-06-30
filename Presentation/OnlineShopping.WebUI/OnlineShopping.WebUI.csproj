@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlineShopping.Core\OnlineShopping.Core.csproj" />
     <ProjectReference Include="..\OnlineShopping.DtoLayer\OnlineShopping.DtoLayer.csproj" />
   </ItemGroup>
 
