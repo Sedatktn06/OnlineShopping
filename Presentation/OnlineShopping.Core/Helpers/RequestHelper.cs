@@ -27,7 +27,7 @@ public class RequestHelper
         return response;
     }
 
-    public static async Task<T> PostAsync<T>(string baseUrl, string url, object body = null) where T : class, new()
+    public static async Task<T> PostAsync<T>(string baseUrl, string url, object body = null)
     {
         var client = new RestClient(baseUrl);
         var request = new RestRequest(url);
@@ -36,12 +36,23 @@ public class RequestHelper
         if (body != null)
             request.AddJsonBody(body, "application/json");
         var queryResult = await client.ExecuteAsync(request);
-        if (!queryResult.IsSuccessful) { return new T(); }
 
-        var result = JsonConvert.DeserializeObject<T> (queryResult.Content);
+        var result = JsonConvert.DeserializeObject<T>(queryResult.Content);
 
-        if(result == null)
-            { return new T(); }
+        return result;
+    }
+
+    public static async Task<T> DeleteAsync<T>(string baseUrl, string url)
+    {
+        var client = new RestClient(baseUrl);
+        var request = new RestRequest(url);
+        request.Method = Method.Delete;
+        request.RequestFormat = DataFormat.Json;
+       
+        var queryResult = await client.ExecuteAsync(request);
+
+        var result = JsonConvert.DeserializeObject<T>(queryResult.Content);
+
         return result;
     }
 

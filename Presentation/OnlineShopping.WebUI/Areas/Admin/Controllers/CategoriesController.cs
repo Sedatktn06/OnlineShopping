@@ -8,8 +8,10 @@ namespace OnlineShopping.WebUI.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [AllowAnonymous]
+[Route("Admin/Categories")]
 public class CategoriesController : Controller
 {
+    [Route("Index")]
     public async Task<IActionResult> Index()
     {
         #region ViewBag Variables
@@ -26,6 +28,7 @@ public class CategoriesController : Controller
     }
 
     [HttpGet]
+    [Route("CreateCategory")]
     public IActionResult CreateCategory()
     {
         ViewBag.V1 = "Ana Sayfa";
@@ -36,13 +39,27 @@ public class CategoriesController : Controller
     }
 
     [HttpPost]
+    [Route("CreateCategory")]
     public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
     {
-        var response = await RequestHelper.PostAsync<CreateCategoryDto>("https://localhost:7070/api/", "Categories", createCategoryDto);
+        var response = await RequestHelper.PostAsync<string>("https://localhost:7070/api/", "Categories", createCategoryDto);
         if (response != null)
         {
             return RedirectToAction("Index", "Categories", new { area = "Admin" });
         }
         return View();
     }
+
+    [Route("DeleteCategory/{id}")]
+    public async Task<IActionResult> DeleteCategory(string id)
+    {
+        var response = await RequestHelper.DeleteAsync<string>("https://localhost:7070/api/", "Categories?id=" + id);
+        if (response != null)
+        {
+            return RedirectToAction("Index", "Categories", new { area = "Admin" });
+        }
+        return View();
+    }
+
+    [Route("UpdateCategory/{id}")]
 }
