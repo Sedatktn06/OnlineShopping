@@ -56,4 +56,19 @@ public class RequestHelper
         return result;
     }
 
+    public static async Task<T> UpdateAsync<T>(string baseUrl, string url, object body = null)
+    {
+        var client = new RestClient(baseUrl);
+        var request = new RestRequest(url);
+        request.Method = Method.Put;
+        request.RequestFormat = DataFormat.Json;
+        if (body != null)
+            request.AddJsonBody(body, "application/json");
+        var queryResult = await client.ExecuteAsync(request);
+
+        var result = JsonConvert.DeserializeObject<T>(queryResult.Content);
+
+        return result;
+    }
+
 }

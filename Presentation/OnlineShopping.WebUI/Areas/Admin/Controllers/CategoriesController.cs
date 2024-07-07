@@ -62,4 +62,30 @@ public class CategoriesController : Controller
     }
 
     [Route("UpdateCategory/{id}")]
+    [HttpGet]
+    public async Task<IActionResult> UpdateCategory(string id)
+    {
+        ViewBag.V1 = "Ana Sayfa";
+        ViewBag.V2 = "Kategoriler";
+        ViewBag.V3 = "Kategori Güncelleme Sayfası";
+        ViewBag.V0 = "Kategori İşlemleri";
+        var response = await RequestHelper.GetAsync<UpdateCategoryDto>("https://localhost:7070/api/", "Categories/" + id);
+        if (response != null)
+        {
+            return View(response);
+        }
+        return View();
+    }
+
+    [Route("UpdateCategory/{id}")]
+    [HttpPost]
+    public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
+    {
+        var response = await RequestHelper.UpdateAsync<UpdateCategoryDto>("https://localhost:7070/api/", "Categories", updateCategoryDto);
+        if (response != null)
+        {
+            return RedirectToAction("Index", "Categories", new { area = "Admin" });
+        }
+        return View();
+    }
 }
