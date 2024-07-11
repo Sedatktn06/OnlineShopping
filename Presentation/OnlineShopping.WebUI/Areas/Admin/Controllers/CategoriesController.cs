@@ -81,7 +81,7 @@ public class CategoriesController : Controller
     [HttpPost]
     public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
     {
-        var response = await RequestHelper.UpdateAsync<UpdateCategoryDto>("https://localhost:7070/api/", "Categories", updateCategoryDto);
+        var response = await RequestHelper.UpdateAsync<string>("https://localhost:7070/api/", "Categories", updateCategoryDto);
         if (response != null)
         {
             return RedirectToAction("Index", "Categories", new { area = "Admin" });

@@ -6,7 +6,7 @@ using OnlineShopping.Catalog.Services.ProductServices;
 
 namespace OnlineShopping.Catalog.Controllers;
 
-[Authorize]
+[AllowAnonymous]
 [Route("api/[controller]")]
 [ApiController]
 public class ProductsController : ControllerBase
